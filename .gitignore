@@ -1,0 +1,15 @@
+# 依赖与构建产物
+node_modules/
+app/.hvigor/
+app/oh_modules/
+app/entry/build/
+**/build/
+
+# 本地备份与临时
+backup-*/
+*.log
+tmp/
+
+# 会话/工作区文件
+.workbuddy/
+*.tgz

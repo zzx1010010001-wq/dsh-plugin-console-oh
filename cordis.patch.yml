@@ -1,0 +1,16 @@
+# DSH 控制台 · 电脑侧插件
+#
+# 装法：DSH 侧栏 → 插件 → 添加插件 → 粘贴本目录的绝对路径
+#      或命令行：dsh plugin --profile desktop add link:<本目录绝对路径>
+#
+# 配置（一般不用改）写在 profile 的 cordis.patch.yml 里，按 id 定向覆盖：
+#   - id: dsh-console-oh
+#     config:
+#       port: 8909          # 局域网服务端口
+#       name: "我的电脑"     # App 上显示的节点名
+#       tunnel: false       # 启动时是否自动拉 cloudflared 隧道
+#
+# 注意：loader 行只放在本文件里，不要在 profile 的 cordis.patch.yml 里重复 insert。
+- insert:
+    - id: dsh-console-oh
+      name: './lib/index.js'

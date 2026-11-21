@@ -1,0 +1,66 @@
+{
+  "name": "dsh-plugin-console-oh",
+  "version": "0.6.0",
+  "description": "DSH 控制台 · 电脑侧插件：局域网服务 + 6 位配对码 + 信任直连 + cloudflared 公网隧道，配套鸿蒙 App（HarmonyOS NEXT）远程使用桌面端 DSH。",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek",
+    "deepseek-harness",
+    "harmonyos",
+    "remote-console",
+    "plugin"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=22.6"
+  },
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-settings"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": ">=4.0.1",
+    "@deepseek-ai/dsh-client-locale": ">=0.1.0-rc.5",
+    "@deepseek-ai/dsh-client-ui-settings": ">=0.1.0-rc.5",
+    "react": "^18.2.0"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-client-locale": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-client-ui-settings": {
+      "optional": true
+    },
+    "react": {
+      "optional": true
+    }
+  },
+  "files": [
+    "lib/**",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node test/selftest.mjs"
+  }
+}
